@@ -12,6 +12,7 @@ public class FormatXmlProcess {
      */  
     public String formatXmlAnswer(String to, String from, String content) {  
         StringBuffer sb = new StringBuffer();  
+        System.out.println("come in formatXmlAnswer");
         Date date = new Date();  
         sb.append("<xml><ToUserName><![CDATA[");  
         sb.append(to);  
@@ -22,6 +23,7 @@ public class FormatXmlProcess {
         sb.append("</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[");  
         sb.append(content);  
         sb.append("]]></Content><FuncFlag>0</FuncFlag></xml>");  
+        System.out.println("come in formatXmlAnswer and the return String is:" + sb.toString());
         return sb.toString();  
     }
 }

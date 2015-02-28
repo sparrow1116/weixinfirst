@@ -2,10 +2,21 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>weixintest001</display-name>
   <servlet>
+    <servlet-name>CoreServer</servlet-name>
+    <servlet-class>com.weixin.server.CoreServer</servlet-class>
+  </servlet>
+ 
+ <servlet>
     <servlet-name>ConnectToWeixin</servlet-name>
     <servlet-class>com.weixin.server.ConnectToWeixin</servlet-class>
   </servlet>
+  
   <servlet-mapping>
+    <servlet-name>CoreServer</servlet-name>
+    <url-pattern>/CoreServer</url-pattern>
+  </servlet-mapping>
+  
+   <servlet-mapping>
     <servlet-name>ConnectToWeixin</servlet-name>
     <url-pattern>/ConnectToWeixin</url-pattern>
   </servlet-mapping>

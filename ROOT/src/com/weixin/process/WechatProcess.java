@@ -7,20 +7,26 @@ public class WechatProcess {
      * @return  最终的解析结果（xml格式数据） 
      */  
     public String processWechatMag(String xml){  
+    	System.out.println("come in processWechatMag 0001");
         /** 解析xml数据 */  
         ReceiveXmlEntity xmlEntity = new ReceiveXmlProcess().getMsgEntity(xml);  
+        
+        System.out.println("come in processWechatMag 0002");
           
         /** 以文本消息为例，调用图灵机器人api接口，获取回复内容 */  
         String result = "";  
-        if("text".endsWith(xmlEntity.getMsgType())){  
-            result = new TulingApiProcess().getTulingResult(xmlEntity.getContent());  
-        }  
-          
+//        if("text".endsWith(xmlEntity.getMsgType())){  
+//            result = new TulingApiProcess().getTulingResult(xmlEntity.getContent());  
+//        }  
+        System.out.println("come in processWechatMag 0003");
         /** 此时，如果用户输入的是“你好”，在经过上面的过程之后，result为“你也好”类似的内容  
          *  因为最终回复给微信的也是xml格式的数据，所有需要将其封装为文本类型返回消息 
          * */  
+        result = "hello";
+        System.out.println("come in WeChatProcess and the result is :" + result);
         result = new FormatXmlProcess().formatXmlAnswer(xmlEntity.getFromUserName(), xmlEntity.getToUserName(), result);  
           
+        System.out.println("come in WeChatProcess and return result String is :" + result);
         return result;  
     }
 }
